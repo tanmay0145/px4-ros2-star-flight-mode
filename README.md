@@ -1,9 +1,5 @@
 # PX4-ROS2 Star Flight Mode
 
-**Author:** Nathaniel Handan  
-**Contact:** handanfoun@gmail.com  
-**License:** BSD-3-Clause
-
 This is a ROS 2 component that can be used to add a custom flight mode to a PX4 autopilot which will cause it to fly in the shape of a 5-pointed star. This is a Python implementation that demonstrates how to create custom flight modes using direct ROS 2 message publishing instead of the C++ px4_ros2 interface library.
 
 ## Requirements

